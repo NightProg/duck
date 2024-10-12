@@ -1,0 +1,20 @@
+import std.fs;
+
+var hello = project  {
+    name = "hello",
+    version = "0.1",
+    description = "A Hello World program in C++",
+    license = "MIT",
+};
+
+
+hello.build {
+    files = fs.resolve("src/*"),
+    include_dir("include/")
+};
+
+
+
+hello.require(pkg "libc" 0.1);
+
+return hello;
